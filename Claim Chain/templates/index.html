@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ClaimChain</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">PLI HealthInsuranceClaim</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        {% if user.is_authenticated %}
+        
+          {% if profile.roll == 'insure' %}
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'ins' %}">Apply insure</a>
+          </li>
+          {% else %}
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'provider' %}">Provider</a>
+          </li>
+        {% endif %}
+        <!-- <li class="nav-item dropdown">
+          
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Applicant
+          </a>
+          
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'ins' %}">insurer</a>
+          </div>
+        </li> -->
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'dash' %}">Dashboard</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" >welcome {{user.username}}</a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          
+        </li>
+        
+        
+        {% else %}
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+          
+        </li>
+
+        {% endif %}
+        
+        
+      </ul>
+    </div>
+  </nav>
+
+
+{% if messages %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <ul>
+    {% for i in messages %}
+    <br>
+    <div class="alert alert-success" role="alert">
+      {{i}}
+    </div>
+    {% endfor %}
+  </ul>
+{% endif %}
+  {%  block root %}
+</div>
+<br>
+<div class="container">
+<hr><center>
+   <h1 Style="background:#E1F6FF";>Claim Your Medical Insurance </h1></center>
+<hr>
+</div>
+<br>
+   <div class="container">
+  
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+      <div class="item active">
+        <img src="https://firebasestorage.googleapis.com/v0/b/claim-chain.appspot.com/o/123.jpg?alt=media&token=9e2c22f4-536b-4331-b86f-d1dd8c4b39b4" alt="Los Angeles" style="width:100%;">
+        <div class="carousel-caption">
+          <h3 style="color:black";>Our life is our priority</h3>
+          <p style="color:black";>Have insurance</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="https://firebasestorage.googleapis.com/v0/b/claim-chain.appspot.com/o/345.png?alt=media&token=958f8194-392d-4e1e-8152-48f79f4f78a6" alt="Chicago" style="width:100%;">
+        <div class="carousel-caption">
+          <h3 style="color:black";>Make your life valuable</h3>
+          <p style="color:black";>Save your Family</p>
+        </div>
+      </div>
+    
+      <div class="item">
+        <img src="https://firebasestorage.googleapis.com/v0/b/claim-chain.appspot.com/o/456.jpg?alt=media&token=590047a7-ad4a-4051-9aa9-76fe3f76728e" alt="New York" style="width:100%;">
+        <div class="carousel-caption">
+          <h3 style="color:black";>Have Your Life Strong</h3>
+          <p style="color:black";>Stay insured</p>
+        </div>
+      </div>
+  
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<div class="container">
+<hr><center>
+   <h1 style="background:#E1F6FF";>Our vision </h1></center>
+<hr>
+<p style="font-size:20px";>The idea to implement blockchain to eliminate third-parties and ensure that there is only communication between a person, a hospital, and an insurance provider with cryptocurrencies.</p>
+<hr>
+<hr><Center>
+<h1 style="background:#E1F6FF";>Why Medical insurance ?</h1></center>
+<p style="font-size:20px">1. To fight lifestyle diseases</p>
+<p style="font-size:20px">2. To safeguard your family </p>
+<p style="font-size:20px">3. To counter inadequate insurance cover</p>
+<p style="font-size:20px">4. To counter inadequate insurance cover</p>
+<hr>
+</div>
+<div class="container">
+<hr><center>
+<h1 style="background:#E1F6FF";>What Covers</h1><hr></center>
+<center>
+<div class="card-group">
+  <div class="card">
+    <img class="card-img-top" src="https://firebasestorage.googleapis.com/v0/b/claim-chain.appspot.com/o/567.jpg?alt=media&token=3d492353-8555-421a-9787-41a0b28df803" alt="Card image cap" height="200" width="200";>
+    <div class="card-body">
+      <h2 class="card-title">Hospitalization Expenses</h4>
+      <h4 class="card-text">Just Like every other health insurance plan.we also cover your hospitalization expenses such as room rent,icu,investigation,surgery,doctor consultations etc due to illness and injuries seamlessly</h5>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+    
+  </div>
+  <hr>
+  <div class="card">
+    <img class="card-img-top" src="456.jpg" alt="Card image cap" height="200" width="200";>
+   
+      <h3 class="card-title"> Mental Healthcare</h3>
+      <h4 class="card-text">We believe mental healthcare is just as important as hospitalization due to physical illness or injury;hence,we cover hospitalization expenses incurred for treating mental illnesses</h4>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+   <hr>
+  <div class="card">
+    <img class="card-img-top" src="567.jpg" alt="Card image cap" height="200" width="200";>
+    <div class="card-body">
+      <h2 class="card-title">Pre &post Hospitalization</h2>
+      <h4 class="card-text">It means all your pre hospitalization expenses up to 60 days before the date of admission and post-hospitalization expenses up to 180 days after dischargefrom hospital are covered.
+ </p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>
+<hr>
+{% endblock %}
+<footer class="text-center text-white" style="background-color: #f1f1f1;">
+  
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-lite text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-lite" href="/">PLI-KRCT</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+</body>
+</html>

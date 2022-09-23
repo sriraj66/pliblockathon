@@ -1,0 +1,83 @@
+{% extends 'index.html' %}
+
+{% block root %}
+<br>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Welcome {{user.username}}</h1>
+      <p class="lead">Details About Your {{profile.roll}}</p>
+    </div>
+  </div>
+  <br>
+  <div class="container-fluid">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Occupation</th>
+            <th scope="col">PAN</th>
+            <th scope="col">Hash</th>
+            <th scope="col">Status</th>
+    
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in datas %}
+          <tr>
+            <th scope="row">{{i.name}}</th>
+            <td>{{i.occupation}}</td>
+            <td>{{i.pan}}</td>
+            <td>{{i.new_hash | truncatewords:2 }}</td>
+            <td>{{i.app_status}}..</td>
+    
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      
+       
+</div>
+  {% if profile.roll == 'provider' %}
+    
+  <div class="container-fluid">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Service</th>
+            <th scope="col">hospital</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">Hash</th>
+            <th scope="col">Documents</th>
+    
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in provider %}
+          <tr>
+            <th scope="row">{{i.service}}</th>
+            <td>{{i.hospital}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.address}}</td>
+            <td>{{i.new_hash | truncatewords:2 }}</td>
+            <td> 
+                <ul>
+                    <li><a href="{{i.ENT.url}}">{{i.ENT}}</a></li>
+                    <li><a href="{{i.ED.url}}">{{i.ED}}</a></li>
+                    <!-- <li><a href="{{i.AI.url}}">{{i.AI}}</a></li> -->
+                    <li><a href="{{i.HI.url}}">{{i.HI}}</a></li>
+
+
+                </ul> </td>
+    
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      
+       
+</div>
+{% endif %}
+<br>
+
+{% endblock %}

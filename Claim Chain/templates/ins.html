@@ -1,0 +1,97 @@
+{% extends 'index.html' %}
+{% block root %}
+
+  
+<div class="container">
+  <h2>Application Form</h2>
+  <hr>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="name">NAME:</label>
+      <input type="ne" class="form-control" id="ne" placeholder="Enter your Name" name="ne">
+    </div>
+    <div class="form-group">
+      <label for="aadhar">AADHAR NO:</label>
+      <input type="number" class="form-control" id="aadhar" placeholder="Enter AADHAR NO" name="aadhar">
+    </div>
+    <div class="form-group">
+      <label for="pwd">AADHAR LINKED MOBILE NO:</label>
+      <input type="aano" class="form-control" id="aano" placeholder="ENTER NUMBER" name="aano">
+    </div>
+    <div class="form-group">
+      <label for="email">EMAIL ID:</label>
+      <input type="email" class="form-control" id="email" placeholder="ENTER EMAIL ADDRESS" name="email">
+    </div>
+    <div class="form-group">
+      <label for="dob">DOB:</label>
+      <input type="date" class="form-control" id="dob" placeholder="Enter DOB:" name="dob">
+    </div>
+    <div class="form-group">
+      <label for="fname">FATHER NAME:</label>
+      <input type="text" class="form-control" id="fname" placeholder="ENTER FATHER NAME:" name="fname">
+    </div>
+    <div class="form-group">
+      <label for="mname">MOTHER NAME:</label>
+      <input type="Text" class="form-control" id="mname" placeholder="ENTER MOTHER NAME:" name="mname">
+    </div>
+    <hr>
+    <center>
+     <div class="form-group">
+      <label for="as">IF DIFFERENT FROM AADHAR ADDRESS THEN CURRENT ADDRESS</label>
+      <input type="TEXT" class="form-control" id="as" placeholder="ENTER ADDRESS" name="as">
+    </div>
+   </center>
+   <hr>
+    <div class="form-group">
+      <label for="MS">MARITAL STATUS:</label>
+      <input type="TEXT" class="form-control" id="MS" placeholder="ENTER MARITAL STATUS" name="MS">
+    </div>
+     <div class="form-group">
+      <label for="ns">NAME OF SPOUSE :</label>
+      <input type="text" class="form-control" id="ns" placeholder="NAME OF SPOUSE" name="SPOUSE">
+    </div>
+    <div class="form-group">
+      <label for="es">EDUCATIONAL QUALIFICATION:</label>
+      <input type="text" class="form-control" id="es" placeholder="ENTER EDUCATIONAL QUALIFICATION" name="QUALIFICATION">
+    </div>
+    <div class="form-group">
+      <label for="pob">PLACE OF BIRTH:</label>
+      <input type="text" class="form-control" id="pob" placeholder="PLACE OF BIRTH" name="PBIRTH">
+    </div>
+    <div class="form-group">
+      <label for="ss">PAN(IF AVAILABLE) :</label>
+      <input type="text" class="form-control" id="ss" placeholder="ENTER PAN NUMBER" name="pan">
+    </div>
+    
+    <div class="form-group">
+      <label for="emp">Occupation</label>
+  <select name="ems" id="emp">
+    <option value="INDIVIDUALProperiter">INDIVIDUALProperiter</option>
+    <option value="GovtEmployee">GovtEmployee</option>
+    <option value="private Employee">private Employee</option>
+  </select>
+   </div>
+    <div class="form-group">
+      <label for="AI">ANNUAL INCOME :</label>
+      <input type="text" class="form-control" id="AI" placeholder="ANNUAL INCOME" name="AINCOME">
+    </div>
+    <hr>
+   <h4><center>Employee Detail</center></h4>
+   <hr>
+   <div class="form-group">
+      <label for="EP">NAME OF PRESENT EMPLOYER :</label>
+      <input type="text" class="form-control" id="EP" placeholder="EMPLOYEE NAME" name="EMPLOYEENAME">
+    </div>
+    <div class="form-group">
+      <label for="EP">NUMBER OF YRS OF SERVICE:</label>
+      <input type="text" class="form-control" id="ns" placeholder="YEARS OF SERVICE" name="yos">
+    </div>
+     <!-- <input type="submit" value="Submit"> -->
+    <button type="submit" class="btn btn-success" >Submit</button>
+    
+    
+  </form>
+</div>
+
+{% endblock %}
