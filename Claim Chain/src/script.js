@@ -33,7 +33,7 @@ async function fech(){
       abi,
       "xdcC6582e92d0d7F1d9248a2065bA3aac5a26Df59F7"
   );
-  web3.eth.sendSignedTransaction()
+  
 }
 function getSync(){
   fech()
